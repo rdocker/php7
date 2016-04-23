@@ -21,4 +21,4 @@ RUN useradd work
 
 EXPOSE 9000
 
-ENTRYPOINT /usr/local/php/sbin/php-fpm --nodaemonize
+ENTRYPOINT ["/usr/local/php/sbin/php-fpm","--nodaemonize"]
