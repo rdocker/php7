@@ -49,9 +49,9 @@ RUN \
 
 
 ADD ./php.ini /opt/php/lib/php.ini
-ADD ./php-fpm.conf /opt/php/etc/php-fpm.conf
-RUN useradd work
+ADD ./php-fpm.conf /opt/php/etc/php-fpm.d/php7.conf
+RUN mv /opt/php/etc/php-fpm.conf.default /opt/php/etc/php-fpm.conf && useradd work && chown work:work /opt/php/var/ -R
 
-EXPOSE 9000
+EXPOSE 9200
 
 ENTRYPOINT ["/opt/php/sbin/php-fpm","--nodaemonize"]
